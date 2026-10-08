@@ -1,0 +1,13 @@
+# Pipeline scratch directory (crops, OCR text, intermediates, verification
+# renders). The committed deliverables live in output/ and scripts/.
+work/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+*.swp

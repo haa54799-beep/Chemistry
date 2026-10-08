@@ -1,0 +1,18 @@
+# Python dependencies for the CBSE Class 12 Chemistry question-bank pipeline.
+# Tested with Python 3.11 (venv). Install with:
+#   python -m venv /path/to/venv && /path/to/venv/bin/pip install -r scripts/requirements.txt
+#
+# Core pipeline (detection, segmentation, crops, PDF building, QA):
+PyMuPDF>=1.24          # PDF parsing, vector rendering of crops, final PDF assembly (pymupdf)
+Pillow>=10.0           # crop image dimensions
+# OCR assist (classification of image-only questions + QA spot checks).
+# The tesseract BINARY ships inside this wheel (no system install needed):
+tesseract-bin>=1.1     # self-contained tesseract 5.x binary (pip wheel)
+# NOTE: tesseract also needs traineddata. The pipeline uses the eng/hin
+# traineddata vendored in scripts/tessdata/ (TESSDATA_PREFIX), so no download
+# is required. scripts/tessdata/ is committed to the repository.
+#
+# Optional / not required by the pipeline (used during development only):
+# reportlab, pypdf, numpy, opencv-python-headless, rapidocr-onnxruntime,
+# torch, torchvision, easyocr, scikit-image, scipy, shapely, pyclipper,
+# python-bidi, pyyaml
